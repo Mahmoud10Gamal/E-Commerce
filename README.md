@@ -52,7 +52,8 @@ As part of the ITI Project, I worked on:
 ## 🚀 Getting Started
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Mahmoud10Gamal/E-Commerce.git
+   git clone https://github.com/Mahmoud10Gamal/MobStore.git
 2. Open the project folder.
 3. Run index.html in any browser.
+
 
