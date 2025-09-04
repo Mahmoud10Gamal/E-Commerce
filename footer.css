@@ -1,0 +1,238 @@
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Root Variables */
+:root {
+    --primary-black: #000000;
+    --primary-white: #ffffff;
+    --text-gray: #00000099;
+    --light-gray: #efefef;
+    --border-gray: #0000001a;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-white);
+}
+
+/* Footer Container */
+.footer-container {
+    width: 100%;
+    background-color: var(--light-gray);
+    padding-top: 90px;
+}
+
+/* Newsletter Section */
+
+
+/* Main Footer */
+.main-footer {
+    background-color: var(--light-gray);
+    padding: 0 0 48px;
+}
+
+.main-footer .container {
+    max-width: 1240px;
+}
+
+/* Brand Section */
+.footer-brand {
+    padding-right: 2rem;
+}
+
+.brand-name {
+    color: var(--primary-black);
+    font-size: 33.5px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.brand-description {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 35px;
+    max-width: 248px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link {
+    align-items: center;
+    background-color: var(--primary-white);
+    border: 1px solid var(--border-gray);
+    border-radius: 50%;
+    color: var(--primary-black);
+    display: flex;
+    height: 28px;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 28px;
+}
+
+.social-link:hover {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    transform: translateY(-2px);
+}
+
+/* Footer Headings */
+.footer-heading {
+    color: var(--primary-black);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 18px;
+    margin-bottom: 26px;
+    text-transform: uppercase;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-black);
+}
+
+/* Footer Divider */
+.footer-divider {
+    border-color: var(--border-gray);
+    margin: 48px 0 24px;
+}
+
+/* Copyright */
+.copyright {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Payment Methods */
+.payment-methods {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.payment-logo {
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    width: auto;
+}
+
+.payment-logo:hover {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+    .newsletter-section {
+        margin: 0 20px 100px;
+        padding: 24px 32px;
+    }
+    
+    .newsletter-title {
+        font-size: 28px;
+        line-height: 32px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    
+    .newsletter-form {
+        margin-left: 0;
+    }
+    
+    .footer-brand {
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .brand-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .payment-methods {
+        justify-content: center;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .newsletter-section {
+        margin: 0 16px 80px;
+        padding: 20px 24px;
+    }
+    
+    .newsletter-title {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    
+    .footer-heading {
+        text-align: center;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .copyright {
+        text-align: center;
+    }
+    
+    .payment-methods {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .payment-logo {
+        height: 24px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .newsletter-section {
+        margin: 0 12px 60px;
+        padding: 16px 20px;
+    }
+    
+    .newsletter-title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    
+    .brand-name {
+        font-size: 28px;
+    }
+}

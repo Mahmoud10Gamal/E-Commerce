@@ -1,0 +1,205 @@
+:root {
+    --primary-color: #003B5C;
+    --secondary-color: #F4F6F9;
+    --sidebar-bg: #008ECC;
+    --text-color: #222;
+    --card-bg: #FFFFFF;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.sidebar a.logout-tab {
+    padding: 12px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar a.logout-tab:hover {
+    background-color: #005B8C;
+    color: #d90429;
+}
+
+.sidebar a.logout-tab i {
+    margin-right: 8px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding-top: 20px;
+    border-right: 1px solid #005B8C;
+}
+.sidebar h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar a {
+    color: #FFFFFF;
+    padding: 12px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.sidebar a:hover, .sidebar a.active {
+    background-color: #005B8C;
+    color: #FFFFFF;
+}
+.content {
+    margin-left: 250px;
+    padding: 30px;
+}
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.card h5 {
+    font-weight: 600;
+    color: var(--text-color);
+}
+.table {
+    background-color: var(--card-bg);
+    overflow: hidden;
+}
+.table th {
+    background-color: #E6F4FB;
+    font-weight: 600;
+    color: var(--text-color);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  vertical-align: middle; 
+  padding: 10px;
+}
+
+img {
+  display: block;
+}
+.modal-content {
+    border-radius: 12px;
+    border: none;
+}
+.modal-header {
+    background-color: var(--card-bg);
+    border-bottom: none;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+.btn-primary:hover {
+    background-color: #006699;
+}
+.btn-warning, .btn-danger {
+    border-radius: 8px;
+    font-weight: 500;
+}
+.sidebar-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -220px;
+        z-index: 1050;
+        background-color: var(--sidebar-bg);
+        transition: left 0.3s;
+        border-right: 1px solid #005B8C;
+        padding-top: 20px;
+        display: block;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .sidebar h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .sidebar a, .sidebar a.logout-tab {
+        padding: 10px 16px;
+        font-size: 0.98rem;
+    }
+    .sidebar-toggle {
+         display: block;
+        position: fixed;
+        top: 20px;        
+        left: 20px;
+        z-index: 1100;
+        background: #008ECC; 
+        border: none;
+        color: #fff;
+        font-size: 2.2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 4px 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .content {
+       margin-left: 0;
+        padding: 30px 10px 10px 10px; 
+        padding-top: 90px;
+    }
+        .content h1, .content h2, .content h3 {
+        margin-top: 0;
+    }
+    body.sidebar-open {
+        overflow: hidden;
+    }
+    
+}
+@media (max-width: 768px) {
+    .sidebar.active + .sidebar-toggle,
+    .sidebar-toggle.hide-when-sidebar {
+        display: none !important;
+    }
+}
+@media (max-width: 768px) {
+    body.sidebar-open .sidebar-overlay {
+        display: block;
+    }
+}
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 1049;
+}
+@media (max-width: 768px) {
+    body.sidebar-open .sidebar-overlay {
+        display: block;
+    }
+}
+

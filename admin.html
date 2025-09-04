@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard</title>
+    <link href="/css/admin.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="bi bi-list"></i>
+    </button>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Admin Dashboard</h3>
+        <a href="#dashboard" onclick="showSection('dashboard')" class="active">Dashboard</a>
+        <a href="#users" onclick="showSection('users')">Users</a>
+        <a href="#products" onclick="showSection('products')">Products Management</a>
+        <a href="#orders" onclick="showSection('orders')">Orders Management</a>
+        <a href="#logout" onclick="logout()" class="logout-tab">
+            <i class="bi bi-box-arrow-left"></i> Logout
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="section">
+            <h2>Dashboard Overview</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <h5>Total Users</h5>
+                        <h3 id="totalUsers">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h5>Total Products</h5>
+                        <h3 id="totalProducts">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h5>Total Orders</h5>
+                        <h3 id="totalOrders">0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h5>Sales Overview</h5>
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Users Section -->
+        <div id="users" class="section" style="display: none;">
+            <h2>Manage Users</h2>
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal">Add User</button>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Products Section -->
+        <div id="products" class="section" style="display: none;">
+            <h2>Manage Products</h2>
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">Add
+                Product</button>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody id="productsTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Orders Section -->
+        <div id="orders" class="section" style="display: none;">
+            <h2>Manage Orders</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Customer ID</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addUserForm">
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-control" id="role" required>
+                                <option value="user">User</option>
+                                <option value="seller">Seller</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add User</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="productName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">Product Image</label>
+                            <input type="file" class="form-control" id="productImage" accept="image/*" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stock" class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="stock" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select class="form-control" id="category" required>
+                                <option value="">-- Choose Category--</option>
+                                <option value="oppo">oppo</option>
+                                <option value="redmi">redmi</option>
+                                <option value="iphone">iPhone</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="sellerId" class="form-label">Seller ID</label>
+                            <input type="text" class="form-control" id="sellerId" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <input type="hidden" id="editProductId">
+                        <div class="mb-3">
+                            <label for="editProductName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="editProductName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editProductImage" class="form-label">Product Image</label>
+                            <input type="file" class="form-control" id="editProductImage" accept="image/*">
+                            <img id="currentProductImage" src="" alt="Current Image"
+                                style="width:100px;height:100px;margin-top:10px;display:none;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="editDescription" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPrice" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="editPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editStock" class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="editStock" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCategory" class="form-label">Category</label>
+                            <input type="text" class="form-control" id="editCategory" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editSellerId" class="form-label">Seller ID</label>
+                            <input type="text" class="form-control" id="editSellerId" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/admin.js"></script>

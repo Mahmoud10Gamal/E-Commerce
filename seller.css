@@ -1,0 +1,105 @@
+/* ---- General look to mimic screenshot ---- */
+:root{
+  --bg:#eef4ff;
+  --card:#fff;
+  --accent:#4b8cff;
+  --muted:#9aa6c0;
+  --radius:14px;
+}
+body{
+  background: linear-gradient(180deg,#eef4ff 0%, #f6f8ff 100%);
+  min-height:100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color:#1f2d3d;
+}
+
+/* Sidebar */
+.app-shell{
+  display:flex;
+  gap:24px;
+  padding:20px;
+  flex-direction: row-reverse;
+}
+.sidebar {
+  width:260px;
+  background:transparent;
+  padding:0; /* 🔹 شيل البادينج */
+}
+
+.sidebar .mb-4 {
+  margin: 0; /* 🔹 شيل المارجن */
+}
+
+.sidebar h5,
+.sidebar small {
+  text-align: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.nav-item .nav-link{
+  border-radius:10px;
+  color: #255;
+}
+.nav-link i {
+  margin-left: 8px;
+}
+.card-ghost{
+  border-radius:14px;
+  box-shadow: 0 6px 18px rgba(95,110,157,0.08);
+  background:var(--card);
+  padding:18px;
+
+  /* تعديل الاتجاه ومحاذاة النص */
+  text-align: left;
+  direction: ltr;
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  text-align: left;
+  direction: rtl;
+}
+.content{
+  flex:1;
+}
+
+/* small product card */
+.p-card{
+  border-radius:12px;
+  background:var(--card);
+  padding:12px;
+  box-shadow: 0 6px 18px rgba(95,110,157,0.06);
+  
+  /* تعديل الاتجاه ومحاذاة النص */
+  text-align: left;
+  direction: ltr;
+}
+#productsGrid {
+    direction: ltr !important;
+    justify-content: flex-start !important;
+}
+.img-thumb{ width:80px; height:80px; object-fit:cover; border-radius:8px; }
+
+/* nice rounded modal */
+.modal-content{ border-radius:12px; }
+
+/* rtl adjustments */
+.text-muted { color:var(--muted)!important; }
+#overviewSection .row {
+  align-items: stretch; /* يخلي الأعمدة تتمدد */
+}
+
+#overviewSection .card-ghost {
+  height: 90%; /* يخلي الكارت ياخد ارتفاع العمود كله */
+  display: flex;
+  flex-direction: column; /* لو فيه محتوى متعدد جوه */
+  justify-content: space-between; /* توزيع المحتوى */
+}
+
+/* responsive: make sidebar fixed on large screens */
+@media (max-width:900px){
+  .sidebar{ display:none; }
+}

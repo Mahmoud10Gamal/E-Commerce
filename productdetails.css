@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+
+    background-color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* المنتج */
+.product-container {
+    max-width: 1100px;
+    margin: 100px auto 50px;
+    /* بدل 50px auto */
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+#product-image {
+    max-height: 400px;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+
+.product-container .row {
+    align-items: center;
+}
+
+
+.product-container h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.product-container h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #008ECC;
+}
+
+.add-to-cart-btn {
+    background-color: #008ECC;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+
+
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    display: none;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item:hover {
+    background-color: #f5f5f5;
+}
+
+.search-result-item img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-right: 8px;
+}
+
+.search-result-item span {
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+
+.footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: 100%;
+    }
+}

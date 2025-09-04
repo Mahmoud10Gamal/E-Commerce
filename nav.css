@@ -1,0 +1,83 @@
+nav{
+    background-color: #e5e8ed;
+}
+
+nav.navbar{
+    padding-block:13px !important ;
+}
+
+#nav-bar .nav-item{
+    padding: 10px 7px 10px 7px;
+}
+
+#nav-bar .nav-item a.nav-link{
+    color: #111;
+    text-transform: capitalize;
+    position: relative;
+    padding: 0;
+}
+#nav-bar .nav-item a.nav-link::after{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 1.5px;
+    background-color: #111;
+    top: 100%;
+    left: 0;
+    transition: width 0.4s ;
+}
+#nav-bar .nav-item:has(a.active) a.nav-link::after{
+    width: 100%;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+input.form-control{
+    width: 70%;
+   
+
+}
+input.form-control:focus{
+ box-shadow: none;
+}
+.nav-cart i {
+    font-size: 14px;
+    color: rgb(63, 58, 58);
+    cursor: pointer;
+    transition: color 0.4s;
+}
+.nav-cart i:hover {
+    color: #0dcaf0;
+}
+.nav-cart{
+    position: relative;
+    padding:3px ;
+       width: 23px;
+    height: 23px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.cart-mum{
+    position: absolute;
+    top: -35%;
+    right: -28%;
+    background-color: #0dcaf0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.cart-mum span{
+    font-size: 12px;
+    color: inherit;
+    transition: color 0.4s;
+}
+.nav-cart:hover .cart-mum{
+    background-color: #fff;
+    color: #0dcaf0;
+}
+
+

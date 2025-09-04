@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cart & Checkout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+  <div class="container container-cart">
+    <div class="row g-3">
+      <div class="col-lg-8 cart-left shadow-sm card-main">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="mb-0">Shopping Cart</h2>
+          <small id="items-count" class="text-muted">0 items</small>
+        </div>
+        <div id="cart-items"></div>
+        <div class="mt-4">
+          <a href="products.html" id="back-to-shop" class="text-decoration-none">&larr; Back to shop</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 cart-right shadow-sm card-main">
+        <h4>Summary</h4>
+        <hr>
+        <div class="d-flex justify-content-between">
+          <div class="summary-label">Items</div>
+          <div id="summary-items">0</div>
+        </div>
+        <div class="mt-3">
+          <label class="summary-label">Shipping</label>
+          <select id="shipping-select" class="form-select mt-2">
+            <option value="0">Free Delivery - 0</option>
+            <option value="30">Express Delivery - 30</option>
+            <option value="10" selected>Standard Delivery - 10</option>
+          </select>
+        </div>
+        <div class="mt-4 d-flex justify-content-between">
+          <div class="summary-label">Total Price</div>
+          <div id="total-price">0</div>
+        </div>
+        <hr class="my-3">
+        <div>
+          <label class="form-label">Shipping Address</label>
+          <input id="shipping-address" class="form-control" placeholder="e.g., Alexandria, Egypt">
+        </div>
+        <div class="mt-3">
+          <label class="form-label">Payment Method</label>
+          <select id="payment-method" class="form-select mt-2">
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="Card">Credit Card</option>
+          </select>
+        </div>
+        <div class="d-grid mt-4">
+          <button id="checkout-btn" class="btn btn-dark">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/cart.js"></script>
+</body>
+</html>

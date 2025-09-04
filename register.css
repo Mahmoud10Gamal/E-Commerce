@@ -1,0 +1,57 @@
+body {
+  background: #f5f6fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.auth {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+}
+
+.btn {
+  background-color: #008ECC;
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: #0074b1;
+  color: #fff;
+}
+
+.auth {
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.main-title {
+  color: #008ecc;
+  font-weight: bold;
+}
+
+.form-control:focus {
+  border-color: #008ecc;
+  box-shadow: 0 0 0 0.2rem rgba(0, 142, 204, 0.25);
+}
+
+#sign-up {
+  background-color: #008ecc;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  transition: 0.3s;
+}
+
+#sign-up:hover {
+  background-color: #006fa3;
+}
+
+.radiosErrMsg,
+.text-danger {
+  font-size: 0.85rem;
+}

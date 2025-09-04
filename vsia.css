@@ -1,0 +1,35 @@
+ body {
+      background: linear-gradient(135deg, #005B8C, #0077B6);
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .payment-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+    .payment-card img {
+      width: 60px;
+    }
+    h4 {
+      color: #005B8C;
+    }
+    .btn-pay {
+      background: #005B8C;
+      color: white;
+      font-weight: 600;
+      border: none;
+    }
+    .btn-pay:hover {
+      background: #00476A;
+    }
+    label {
+      color: #005B8C;
+      font-weight: 500;
+    }
